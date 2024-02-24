@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Setters of Catan</title>
+        <link rel = "stylesheet" href = "catanstyle.css">
+	</head>
+
+<body>
+<h1>Roll Di for Settlers of Catan with the button below.</h1>
+<div class = "center">
+    <button type="button" onclick="rollTwoDice()">Roll Di</button>
+    <img id="diceImage" src="6-Di.png" alt="Dice">
+    <img id="diceImageTwo" src="6-Di.png" alt="DiceTwo">
+    <!-- <div id="roll-two-di"></div> -->
+</div>
+
+<br><br>
+
+<script>
+    let rollCounter = 0
+	async function rollTwoDice() {
+		rollCounter++
+
+        // Gets the result of a dice being rolled
+		const response = await fetch("/rollSingleDice")
+		const responseText = await response.text()
+        // Gets the result of another dice being rolled
+        const responseTwo = await fetch("/rollSingleDice")
+		const responseTextTwo = await responseTwo.text()
+
+        var totalResult = response + responseTwo
+        if (totalResult == 7) {
+        totalResult = totalResult + ". If you have 8 or more cards, discard half your hand."
+        }
+        var imageSrc = responseText + "-" + "Di" + ".png";
+        var imageSrcSecond = responseTextTwo + "-" + "Di" + ".png";
+
+        document.getElementById('diceImage').src = imageSrc;
+        document.getElementById('diceImageTwo').src = imageSrcSecond;
+		document.getElementById("roll-two-di").innerHTML = responseText + " " +  responseTextTwo +" (" + rollCounter + ")"
+        
+	}
+
+</script>
+
+</body>
+</html>

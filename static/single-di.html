@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rolling One Di</title>
+</head>
+<body>
+
+<h1>Roll a single dice with the button below.</h1>
+
+<button type="button" onclick="rollSingleDice()">Roll Di</button>
+<div id="roll-one-di"></div>
+
+<br><br>
+
+<script>
+    let rollCounter = 0
+	async function rollSingleDice() {
+		rollCounter++
+		const response = await fetch("/rollSingleDice")
+		const responseText = await response.text()
+		document.getElementById("roll-one-di").innerHTML = responseText + " (" + rollCounter + ")"
+	}
+
+</script>
+</body>
+</html>
