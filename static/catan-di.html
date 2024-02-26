@@ -6,12 +6,22 @@
 	</head>
 
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href = "single-di.html">Home</a></li>
+                <li><a href = "catan-di.html">Catan</a></li>
+            </ul>
+        </nav>
+    </header>
 <h1>Roll Di for Settlers of Catan with the button below.</h1>
 <div class = "center">
     <button type="button" onclick="rollTwoDice()">Roll Di</button>
+    
+</div>
+<div class = "center">
     <img id="diceImage" src="6-Di.png" alt="Dice">
     <img id="diceImageTwo" src="6-Di.png" alt="DiceTwo">
-    <!-- <div id="roll-two-di"></div> -->
 </div>
 
 <br><br>
@@ -37,7 +47,7 @@
 
         document.getElementById('diceImage').src = imageSrc;
         document.getElementById('diceImageTwo').src = imageSrcSecond;
-		document.getElementById("roll-two-di").innerHTML = responseText + " " +  responseTextTwo +" (" + rollCounter + ")"
+		// document.getElementById("roll-two-di").innerHTML = responseText + " " +  responseTextTwo +" (" + rollCounter + ")"
         
 	}
 

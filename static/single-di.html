@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Rolling One Di</title>
+    <title>Rolling One Di</title>
+    <link rel = "stylesheet" href = "singlestyle.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href = "single-di.html">Home</a></li>
+                <li><a href = "catan-di.html">Catan</a></li>
+            </ul>
+        </nav>
+    </header>
 
 <h1>Roll a single dice with the button below.</h1>
 
-<button type="button" onclick="rollSingleDice()">Roll Di</button>
-<div id="roll-one-di"></div>
-
-<br><br>
+<div class = "center">
+    <button type="button" onclick="rollSingleDice()">Roll Di</button>
+</div>
+<div class = "center">
+    <img id="diceImage" src="6-Di.png" alt="Dice">
+</div>
 
 <script>
     let rollCounter = 0
@@ -18,7 +29,8 @@
 		rollCounter++
 		const response = await fetch("/rollSingleDice")
 		const responseText = await response.text()
-		document.getElementById("roll-one-di").innerHTML = responseText + " (" + rollCounter + ")"
+        var imageSrc = responseText + "-" + "Di" + ".png";
+        document.getElementById('diceImage').src = imageSrc;
 	}
 
 </script>

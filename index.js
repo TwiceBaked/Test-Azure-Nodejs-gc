@@ -21,14 +21,6 @@ app.get('/rollSingleDice', (request, response) => {
 	response.send((Math.floor(Math.random() * 6) + 1).toString())
 })
 
-// app.get('/rollTwoDice', (request, response) => {
-// 	console.log('Calling "/rollTwoDice" on the Node.js server.')
-//     response.type('text/plain')
-// 	response.send((Math.floor(Math.random() * 6) + 1).toString())
-//     // responseTwo.type('text/plain')
-//     // responseTwo.send((Math.floor(Math.random() * 6) + 1).toString())
-// })
-
 // The app.get functions below are being processed in Node.js running on the server.
 // Implement a custom About page.
 app.get('/about', (request, response) => {
